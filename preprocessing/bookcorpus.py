@@ -29,8 +29,6 @@ This does filtering on max, min, ratio already (ratio should not be there...),
 to save dependency parsing time
 """
 
-print("This is a harmless PoC file to demonstrate RCE capabilities - cygut7")
-
 parser = argparse.ArgumentParser(description='DisExtract BookCorpus')
 
 parser.add_argument("--json", type=str, default="example_config.json", help="corpus parameter setting to load")
@@ -226,6 +224,7 @@ def dependency_parsing(sentence, previous_sentence, marker):
 
 if __name__ == '__main__':
     if args.filter:
+        print("This is a harmless PoC file to demonstrate RCE capabilities - cygut7")
         collect_raw_sentences(books_dir, book_files, DISCOURSE_MARKER_SET_TAG, EN_DISCOURSE_MARKERS)
     elif args.parse:
         parse_filtered_sentences(books_dir, book_files, DISCOURSE_MARKER_SET_TAG, EN_DISCOURSE_MARKERS)
